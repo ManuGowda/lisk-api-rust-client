@@ -1,0 +1,6 @@
+[package]
+name = "lisk-api-rust-client"
+version = "0.1.0"
+authors = ["Manu Nelamane Siddalingegowda <manu@lightcurve.io>"]
+
+[dependencies]

@@ -1,0 +1,4 @@
+[[package]]
+name = "lisk-api-rust-client"
+version = "0.1.0"
+
