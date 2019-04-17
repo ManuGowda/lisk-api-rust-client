@@ -2,5 +2,20 @@
 name = "lisk-api-rust-client"
 version = "0.1.0"
 authors = ["Manu Nelamane Siddalingegowda <manu@lightcurve.io>"]
+description = "Rust API Client for LISK Blockchain"
+license = "MIT"
+
+[lib]
+name = "lisk_api_rust_client"
+path = "src/lib.rs"
+doctest = false
 
 [dependencies]
+reqwest = "0.9.14"
+serde = "1.0.90"
+serde_derive = "1.0.90"
+serde_json = "1.0.39"
+
+[dev-dependencies]
+mockito = "0.14.0"
+assert_float_eq = "1.1.3"
