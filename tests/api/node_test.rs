@@ -19,3 +19,23 @@ fn test_status() {
         );
     }
 }
+
+#[test]
+fn test_constants() {
+    let (_mock, body) = mock_http_request("node/constants");
+    {
+        let client = mock_client();
+        let actual = client.node.constants().unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_eq!(
+            actual.data.nethash,
+            expected["data"]["nethash"].as_str().unwrap()
+        );
+
+        assert_eq!(
+            actual.data.version,
+            expected["data"]["version"].as_str().unwrap()
+        );
+    }
+}

@@ -179,14 +179,14 @@ pub struct NodeConstants {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Fees {
-    pub send: u64,
-    pub vote: u64,
-    pub second_signature: u64,
-    pub delegate: u64,
-    pub multisignature: u64,
-    pub dapp_registration: u64,
-    pub dapp_withdrawal: u64,
-    pub dapp_deposit: u64,
+    pub send: String,
+    pub vote: String,
+    pub second_signature: String,
+    pub delegate: String,
+    pub multisignature: String,
+    pub dapp_registration: String,
+    pub dapp_withdrawal: String,
+    pub dapp_deposit: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]

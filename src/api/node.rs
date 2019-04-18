@@ -1,4 +1,4 @@
-use api::models::NodeStatus;
+use api::models::{NodeConstants, NodeStatus};
 use api::Result;
 use http::client::Client;
 
@@ -13,5 +13,9 @@ impl Node {
 
     pub fn status(&self) -> Result<NodeStatus> {
         self.client.get("node/status")
+    }
+
+    pub fn constants(&self) -> Result<NodeConstants> {
+        self.client.get("node/constants")
     }
 }
