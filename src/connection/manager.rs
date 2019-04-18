@@ -24,7 +24,7 @@ impl<'a> Manager<'a> {
 
     pub fn connect_as(&mut self, connection: &'a Connection, name: &str) -> Result<(), &str> {
         if self.connections.contains_key(name) {
-           return Err("Connection instance already exists");
+            return Err("Connection instance already exists");
         }
 
         self.connections.insert(name.to_owned(), connection);
@@ -67,5 +67,4 @@ impl<'a> Manager<'a> {
     pub fn connections(&self) -> Values<String, &'a Any> {
         self.connections.values()
     }
-
 }

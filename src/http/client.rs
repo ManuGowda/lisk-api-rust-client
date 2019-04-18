@@ -33,21 +33,21 @@ impl Client {
     }
 
     pub fn get_with_params<T, I, K, V>(&self, endpoint: &str, parameters: I) -> Result<T>
-        where
-            T: DeserializeOwned,
-            I: IntoIterator,
-            I::Item: Borrow<(K, V)>,
-            K: AsRef<str>,
-            V: AsRef<str>,
+    where
+        T: DeserializeOwned,
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
     {
         let url = Url::parse_with_params(&format!("{}{}", self.host, endpoint), parameters)?;
         self.internal_get(&url)
     }
 
     pub fn post<T, V>(&self, endpoint: &str, payload: Option<HashMap<&str, V>>) -> Result<T>
-        where
-            T: DeserializeOwned,
-            V: Serialize,
+    where
+        T: DeserializeOwned,
+        V: Serialize,
     {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_post(&url, payload)
@@ -59,13 +59,13 @@ impl Client {
         payload: Option<HashMap<&str, H>>,
         parameters: I,
     ) -> Result<T>
-        where
-            T: DeserializeOwned,
-            H: Serialize,
-            I: IntoIterator,
-            I::Item: Borrow<(K, V)>,
-            K: AsRef<str>,
-            V: AsRef<str>,
+    where
+        T: DeserializeOwned,
+        H: Serialize,
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
     {
         let url = Url::parse_with_params(&format!("{}{}", self.host, endpoint), parameters)?;
         self.internal_post(&url, payload)
@@ -78,9 +78,9 @@ impl Client {
     }
 
     fn internal_post<T, V>(&self, url: &Url, payload: Option<HashMap<&str, V>>) -> Result<T>
-        where
-            T: DeserializeOwned,
-            V: Serialize,
+    where
+        T: DeserializeOwned,
+        V: Serialize,
     {
         let builder = self.client.post(url.as_str());
 

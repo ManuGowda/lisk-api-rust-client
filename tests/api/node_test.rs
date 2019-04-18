@@ -13,6 +13,9 @@ fn test_status() {
             expected["data"]["broadhash"].as_str().unwrap()
         );
 
-        assert_eq!(actual.data.consensus, expected["data"]["consensus"].as_u64().unwrap());
+        assert_eq!(
+            actual.data.consensus,
+            expected["data"]["consensus"].as_u64().unwrap()
+        );
     }
 }
