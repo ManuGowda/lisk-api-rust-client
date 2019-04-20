@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "offset": 0,
+    "limit": 10
+  },
+  "data": [
+    {
+      "address": "16009998050678037905L",
+      "publicKey": "73ec4adbd8f99f0d46794aeda3c3d86b245bd9d27be2b282cdd38ad21988556b",
+      "balance": "-9999999900000000",
+      "secondPublicKey": "",
+      "unconfirmedBalance": "-9999999900000000"
+    },
+    {
+      "address": "10911939226583542478L",
+      "publicKey": "4a49d7585d8656a7a3d8ada436d3dc1ec90cdd620ae3cfbe1ffbda31e9b0aff3",
+      "balance": "0",
+      "secondPublicKey": "",
+      "unconfirmedBalance": "0",
+      "delegate": {
+        "username": "tariqfrommaroc",
+        "vote": "0",
+        "rewards": "0",
+        "producedBlocks": 0,
+        "missedBlocks": 0,
+        "rank": 508,
+        "productivity": 0,
+        "approval": 0
+      }
+    },
+    {
+      "address": "14377589660081535605L",
+      "publicKey": "eaa049295d96618c51eb30deffe7fc2cc8bfc13190cb97f3b513dd060b000a46",
+      "balance": "0",
+      "secondPublicKey": "",
+      "unconfirmedBalance": "0",
+      "delegate": {
+        "username": "isabella",
+        "vote": "842649279959249",
+        "rewards": "23623100000000",
+        "producedBlocks": 51170,
+        "missedBlocks": 5111,
+        "rank": 104,
+        "productivity": 90.92,
+        "approval": 6.33
+      }
+    }
+  ],
+  "links": {}
+}
