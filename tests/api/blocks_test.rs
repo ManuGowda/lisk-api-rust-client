@@ -8,7 +8,9 @@ fn test_all_blocks() {
         let client = mock_client();
         let actual = client.blocks.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
-        print!("{:?}", actual);
-        print!("{:?}", expected);
+         assert_eq!(
+            actual.data[0].id,
+            expected["data"][0]["id"].as_str().unwrap()
+        );
     }
 }
