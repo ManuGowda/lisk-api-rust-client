@@ -1,6 +1,8 @@
+pub mod blocks;
 pub mod models;
 pub mod node;
 
+use self::blocks::Blocks;
 use self::models::Response;
 use self::node::Node;
 
@@ -12,6 +14,7 @@ pub type Result<T> = std::result::Result<Response<T>, Error>;
 pub struct Api {
     pub node: Node,
     pub client: Client,
+    pub blocks: Blocks,
 }
 
 impl Api {
@@ -24,6 +27,7 @@ impl Api {
 
         Api {
             node: Node::new(client.clone()),
+            blocks: Blocks::new(client.clone()),
             client,
         }
     }
