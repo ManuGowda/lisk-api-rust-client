@@ -68,8 +68,8 @@ pub struct TransactionsInPool {
 pub struct Account {
     pub address: String,
     pub public_key: String,
-    pub balance: Option<u64>,
-    pub unconfirmed_balance: Option<u64>,
+    pub balance: Option<String>,
+    pub unconfirmed_balance: Option<String>,
     pub second_public_key: Option<String>,
     pub min: Option<u8>,
     pub lifetime: Option<u32>,
@@ -107,27 +107,29 @@ pub struct Block {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
+#[serde(default)]
 #[serde(rename_all = "camelCase")]
 pub struct Transaction {
     pub id: String,
-    pub amount: u64,
-    pub fee: u64,
-    pub r#type: u8,
     pub height: u64,
     pub block_id: String,
-    pub timestamp: String,
-    pub sender_id: String,
+    pub r#type: u8,
+    pub timestamp: u64,
     pub sender_public_key: String,
-    pub sender_second_public_key: String,
-    pub recipient_id: String,
     pub recipient_public_key: String,
+    pub sender_id: String,
+    pub recipient_id: String,
+    pub amount: String,
+    pub fee: String,
     pub signature: String,
-    pub sign_signature: String,
-    pub signatures: Signature,
+    pub signatures: Option<Vec<Signature>>,
+    #[serde(skip_serializing_if = "Asset::is_none")]
+    pub asset: Asset,
     pub confirmations: u64,
-    pub asset: HashMap<String, String>,
-    pub relays: u16,
-    pub ready: bool,
+    pub sender_second_public_key: Option<String>,
+    pub sign_signature: Option<String>,
+    pub relays: Option<u16>,
+    pub ready: Option<bool>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
@@ -231,13 +233,14 @@ pub struct Forger {
 #[serde(rename_all = "camelCase")]
 pub struct DelegateWithAccount {
     pub username: String,
-    pub vote: u64,
+    pub vote: String,
     pub rewards: String,
     pub produced_blocks: u32,
     pub missed_blocks: u32,
-    pub approval: f32,
+    pub rank: u16,
     pub productivity: f32,
-    pub account: HashMap<String, String>,
+    pub approval: f32,
+    pub account: Option<HashMap<String, String>>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
@@ -278,4 +281,52 @@ pub struct Vote {
     pub public_key: String,
     pub balance: String,
     pub username: String,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum Asset {
+    #[serde(skip)]
+    None,
+    Data(String),
+    Signature {
+        #[serde(rename = "publicKey")]
+        public_key: String,
+    },
+    Delegate {
+        #[serde(rename = "publicKey")]
+        public_key: String,
+        username: String,
+        address: String,
+    },
+    Votes(Vec<String>),
+    Multisignature {
+        min: u8,
+        lifetime: u64,
+        keysgroup: Vec<String>,
+    },
+    Dapp {
+        icon: String,
+        link: String,
+        name: String,
+        tags: String,
+        r#type: u8,
+        category: u8,
+        description: String,
+    },
+}
+
+impl Asset {
+    pub fn is_none(&self) -> bool {
+        match *self {
+            Asset::None => true,
+            _ => false,
+        }
+    }
+}
+
+impl Default for Asset {
+    fn default() -> Self {
+        Asset::None
+    }
 }
