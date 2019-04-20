@@ -79,25 +79,25 @@ pub struct Member {
     pub second_public_key: String,
 }
 
-#[derive(Clone, Debug, Default, PartialEq, Deserialize)]
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Block {
     pub id: String,
-    pub version: u8,
-    pub height: u64,
+    pub version: u64,
     pub timestamp: u64,
-    pub generator_address: String,
-    pub generator_public_key: String,
-    pub payload_length: u16,
+    pub height: u64,
+    pub number_of_transactions: u64,
+    pub total_amount: String,
+    pub total_fee: String,
+    pub reward: String,
+    pub payload_length: u64,
     pub payload_hash: String,
+    pub generator_public_key: String,
     pub block_signature: String,
-    pub confirmations: u16,
+    pub confirmations: u64,
+    pub total_forged: String,
+    pub generator_address: String,
     pub previous_block_id: String,
-    pub number_of_transactions: u16,
-    pub total_amount: u64,
-    pub total_fee: u64,
-    pub reward: u64,
-    pub total_forged: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
