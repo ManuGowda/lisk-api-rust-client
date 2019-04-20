@@ -1,8 +1,10 @@
 pub mod blocks;
+pub mod dapps;
 pub mod models;
 pub mod node;
 
 use self::blocks::Blocks;
+use self::dapps::Dapps;
 use self::models::Response;
 use self::node::Node;
 
@@ -15,6 +17,7 @@ pub struct Api {
     pub node: Node,
     pub client: Client,
     pub blocks: Blocks,
+    pub dapps: Dapps,
 }
 
 impl Api {
@@ -28,6 +31,7 @@ impl Api {
         Api {
             node: Node::new(client.clone()),
             blocks: Blocks::new(client.clone()),
+            dapps: Dapps::new(client.clone()),
             client,
         }
     }
