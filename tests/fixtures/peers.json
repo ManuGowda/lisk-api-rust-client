@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "offset": 0,
+    "limit": 2,
+    "count": 187
+  },
+  "data": [
+    {
+      "ip": "47.30.203.87",
+      "wsPort": 7001,
+      "state": 1,
+      "version": "1.4.0-rc.0"
+    },
+    {
+      "ip": "47.30.246.230",
+      "wsPort": 7001,
+      "state": 1,
+      "version": "1.4.0-rc.0",
+      "nonce": "eTLcrsCidfkfH8DR",
+      "httpPort": 7000
+    }
+  ],
+  "links": {}
+}

@@ -149,15 +149,15 @@ pub struct Dapp {
 #[serde(rename_all = "camelCase")]
 pub struct Peer {
     pub ip: String,
-    pub http_port: u8,
-    pub ws_port: u8,
-    pub os: String,
+    pub http_port: Option<u64>,
+    pub ws_port: u64,
+    pub os: Option<String>,
     pub version: String,
-    pub protocol_version: String,
-    pub state: u8,
-    pub height: u64,
-    pub broadhash: String,
-    pub nonce: String,
+    pub protocol_version: Option<String>,
+    pub state: Option<u64>,
+    pub height: Option<u64>,
+    pub broadhash: Option<String>,
+    pub nonce: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
