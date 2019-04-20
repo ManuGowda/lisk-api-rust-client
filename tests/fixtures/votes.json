@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "offset": 0,
+    "limit": 1
+  },
+  "data": {
+    "address": "14628350534858367799L",
+    "balance": "3939101084431",
+    "username": "zero",
+    "publicKey": "fd061b9146691f3c56504be051175d5b76d1b1d0179c5c4370e18534c5882122",
+    "votesUsed": 1,
+    "votesAvailable": 100,
+    "votes": [
+      {
+        "address": "14628350534858367799L",
+        "publicKey": "fd061b9146691f3c56504be051175d5b76d1b1d0179c5c4370e18534c5882122",
+        "balance": "3939101084431",
+        "username": "zero"
+      }
+    ]
+  },
+  "links": {}
+}

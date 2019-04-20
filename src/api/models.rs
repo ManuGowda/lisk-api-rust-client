@@ -14,6 +14,12 @@ pub struct RequestError {
 pub struct Meta {
     pub limit: Option<u32>,
     pub offset: Option<u32>,
+    pub count: Option<u64>,
+    pub from_timestamp: Option<u64>,
+    pub to_timestamp: Option<u64>,
+    pub last_block: Option<u64>,
+    pub last_block_slot: Option<u64>,
+    pub current_slot: Option<u64>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
@@ -67,7 +73,7 @@ pub struct Account {
     pub second_public_key: String,
     pub min: u8,
     pub lifetime: u32,
-    pub delegate: Option<Delegate>,
+    pub delegate: Option<DelegateWithAccount>,
     pub members: Option<Vec<Member>>,
 }
 
@@ -205,15 +211,20 @@ pub struct NodeStatus {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Delegate {
+pub struct ForgingStats {
+    pub fees: String,
+    pub rewards: String,
+    pub forged: String,
+    pub count: String,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Forger {
     pub username: String,
-    pub vote: u64,
-    pub rewards: u64,
-    pub produced_blocks: u64,
-    pub missed_blocks: u64,
-    pub approval: f32,
-    pub productivity: f32,
-    pub rank: u64,
+    pub address: String,
+    pub public_key: String,
+    pub next_slot: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
@@ -226,7 +237,7 @@ pub struct DelegateWithAccount {
     pub missed_blocks: u32,
     pub approval: f32,
     pub productivity: f32,
-    pub account: Account,
+    pub account: HashMap<String, String>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
@@ -242,14 +253,6 @@ pub struct DelegateWithVoters {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Voter {
-    pub address: String,
-    pub public_key: String,
-    pub balance: String,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct DelegateWithVotes {
     pub address: String,
     pub balance: String,
@@ -258,6 +261,14 @@ pub struct DelegateWithVotes {
     pub votes_used: u32,
     pub votes_available: u32,
     pub votes: Vec<Vote>,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Voter {
+    pub address: String,
+    pub public_key: String,
+    pub balance: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]

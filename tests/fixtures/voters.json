@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "offset": 0,
+    "limit": 1
+  },
+  "data": {
+    "username": "zero",
+    "publicKey": "fd061b9146691f3c56504be051175d5b76d1b1d0179c5c4370e18534c5882122",
+    "address": "14628350534858367799L",
+    "balance": "3939101084431",
+    "voters": [
+      {
+        "address": "2450278249619677470L",
+        "publicKey": "017830718e0cc23a53c1833bd7405ddd1bb8d4f2cbdece8b4981983d19db2713",
+        "balance": "3694583864482"
+      }
+    ],
+    "votes": 30
+  },
+  "links": {}
+}

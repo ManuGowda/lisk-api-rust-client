@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "lastBlock": 8058492,
+    "lastBlockSlot": 9166629,
+    "currentSlot": 9166629,
+    "limit": 1,
+    "offset": 0
+  },
+  "data": [
+    {
+      "username": "anamix",
+      "address": "18061915355115105944L",
+      "publicKey": "cda0220f413c7f62cfe46e9544519cced3277d0931d0342270e6b47b4b346e0b",
+      "nextSlot": 9166630
+    }
+  ],
+  "links": {}
+}

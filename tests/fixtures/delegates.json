@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "offset": 0,
+    "limit": 1
+  },
+  "data": [
+    {
+      "username": "zero",
+      "vote": "1595284673110793",
+      "rewards": "3933600000000",
+      "producedBlocks": 13112,
+      "missedBlocks": 1005,
+      "productivity": 92.88,
+      "rank": 89,
+      "account": {
+        "address": "14628350534858367799L",
+        "publicKey": "fd061b9146691f3c56504be051175d5b76d1b1d0179c5c4370e18534c5882122",
+        "secondPublicKey": ""
+      },
+      "approval": 11.98
+    }
+  ],
+  "links": {}
+}
