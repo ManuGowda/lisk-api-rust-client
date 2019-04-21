@@ -1,2 +1,2 @@
-# lisk-api-rust-client
-Lisk Blockchain API Rust Client
+# Lisk Rust - API Client
+Rust API Client for accessing Lisk Blockchain
