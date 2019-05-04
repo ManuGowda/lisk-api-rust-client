@@ -26,4 +26,14 @@ impl Accounts {
     {
         self.client.get_with_params("accounts", parameters)
     }
+
+    pub fn multisignature_groups(&self, address: &str) -> Result<Vec<Account>> {
+        let endpoint = format!("accounts/{}/multisignature_groups", address);
+        self.client.get(&endpoint)
+    }
+
+    pub fn multisignature_memberships(&self, address: &str) -> Result<Vec<Account>> {
+        let endpoint = format!("accounts/{}/multisignature_memberships", address);
+        self.client.get(&endpoint)
+    }
 }

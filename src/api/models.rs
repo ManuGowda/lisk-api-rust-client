@@ -222,6 +222,13 @@ pub struct ForgingStats {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ForgingStatus {
+    pub forging: bool,
+    pub public_key: String,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Forger {
     pub username: String,
     pub address: String,

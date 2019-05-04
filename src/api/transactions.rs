@@ -1,5 +1,6 @@
 use http::client::Client;
 use std::borrow::Borrow;
+use std::collections::HashMap;
 
 use api::models::Transaction;
 use api::Result;
@@ -25,5 +26,12 @@ impl Transactions {
         V: AsRef<str>,
     {
         self.client.get_with_params("transactions", parameters)
+    }
+
+    pub fn create(&self, transactions: Vec<&str>) -> Result<Transaction> {
+        let mut payload = HashMap::<&str, Vec<&str>>::new();
+        payload.insert("transactions", transactions);
+
+        self.client.post("transactions", Some(payload))
     }
 }
