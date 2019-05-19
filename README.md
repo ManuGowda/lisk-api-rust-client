@@ -7,7 +7,7 @@
 
 Follow the official RUST docs and install [RUST](https://www.rust-lang.org/tools/install)
 
-## Contribution Installation
+## Contribution Setup
 ```
 git clone https://github.com/ManuGowda/lisk-api-rust-client.git
 cd lisk-api-rust-client
